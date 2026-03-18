@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandable Sidebar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px; /* Expanded width */
+            height: 100vh;
+            background-color: #333;
+            color: white;
+            transition: width 0.3s ease-in-out; /* Smooth transition for expanding/collapsing */
+            overflow: hidden;
+        }
+
+        /* Sidebar when collapsed */
+        .sidebar.collapsed {
+            width: 1px; /*Collapsed width*/
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        /* Sidebar toggle button */
+        .toggle-btn {
+            position: fixed;
+            top: 50%;
+            left: 200px; /* Position button next to the sidebar */
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            transform: translateY(-50%); /* Center button vertically */
+            z-index: 1000; /* Ensure the button is above content */
+        }
+
+        /* Content area */
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            width: 100%;
+            transition: margin-left 0.3s ease-in-out;
+        }
+
+        .content.expanded {
+            margin-left: 50px; /* Adjust content width when sidebar is collapsed */
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <a href="#topic1">Topic 1</a>
+        <a href="#topic2">Topic 2</a>
+        <a href="#topic3">Topic 3</a>
+    </div>
+
+    <!-- Sidebar toggle button -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+    <!-- Content -->
+    <div class="content" id="content">
+        <div id="topic1">
+            <h2>Topic 1</h2>
+            <p>This is the content for Topic 1. When you click the link in the sidebar, the page will scroll to this section.</p>
+        </div>
+
+        <div id="topic2">
+            <h2>Topic 2</h2>
+            <p>This is the content for Topic 2. It will be scrolled into view when you click on Topic 2 in the sidebar.</p>
+        </div>
+
+        <div id="topic3">
+            <h2>Topic 3</h2>
+            <p>This is the content for Topic 3. Clicking on the link in the sidebar will take you here.</p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle sidebar function
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+
+            // Toggle 'collapsed' class for sidebar and 'expanded' class for content
+            sidebar.classList.toggle('collapsed');
+            content.classList.toggle('expanded');
+        }
+    </script>
+
+</body>
+</html>

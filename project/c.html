@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Detailed Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1{
+            background-color:#d6a20e ;
+            color:#176dd8 ;
+            text-align: center;
+            text-decoration: underline;
+        }
+         h2, h3 {
+            color: #333;
+            text-align: center;
+            text-decoration: underline;
+         }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        code {
+            color: #e74c3c;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>C Programming Detailed Notes</h1>
+
+<h2>1. Introduction to C</h2>
+<p>C is a <strong>procedural programming language</strong> developed by <strong>Dennis Ritchie</strong> at Bell Labs in 1972. It is known for its efficiency, flexibility, and ability to perform low-level operations.</p>
+<p><strong>Features of C:</strong></p>
+<ul>
+    <li><strong>Portability:</strong> Programs written in C can be easily moved from one system to another with minimal modification.</li>
+    <li><strong>Efficiency:</strong> C provides low-level access to memory and is highly efficient.</li>
+    <li><strong>Structured:</strong> C encourages the use of functions, making code modular and easier to understand.</li>
+</ul>
+
+<p><strong>Uses of C:</strong></p>
+<ul>
+    <li>System Software Development (e.g., Operating Systems like UNIX).</li>
+    <li>Embedded Systems (in hardware).</li>
+    <li>Compilers and Interpreters.</li>
+</ul>
+
+<h2>2. Overview of C</h2>
+<p>C language is a <strong>high-level language</strong> that is <strong>compiled</strong>, meaning C code is transformed into machine language by a compiler before execution. C is often referred to as a <strong>middle-level language</strong> because it combines both high-level constructs and low-level operations (such as pointers).</p>
+
+<p><strong>Key components:</strong></p>
+<ul>
+    <li><strong>Basic syntax:</strong> C uses simple syntax to define variables, functions, loops, and conditional statements.</li>
+    <li><strong>Functions:</strong> C supports functions for breaking down complex tasks into smaller sub-tasks. The <code>main()</code> function is the entry point of every C program.</li>
+    <li><strong>Pointers:</strong> C allows direct access to memory, offering the ability to manipulate data through addresses.</li>
+    <li><strong>Control structures:</strong> C includes the usual flow-control mechanisms like <code>if</code>, <code>else</code>, <code>switch</code>, loops, etc.</li>
+</ul>
+
+<h2>3. Constants in C</h2>
+<p>A <strong>constant</strong> is a value that cannot change during the execution of a program.</p>
+
+<p><strong>Types of Constants:</strong></p>
+<ul>
+    <li><strong>Literal Constants:</strong> Fixed values (e.g., <code>10</code>, <code>'A'</code>, <code>3.14</code>).</li>
+    <li><strong>Symbolic Constants:</strong> Defined using <code>#define</code> or the <code>const</code> keyword.</li>
+</ul>
+
+<p><strong>Example of Symbolic Constants:</strong></p>
+<pre>
+#include &lt;stdio.h&gt;
+#define PI 3.14  // Preprocessor constant
+
+int main() {
+    const int MAX = 100;  // Constant variable
+    printf("PI: %.2f\n", PI);
+    printf("Max value: %d\n", MAX);
+    return 0;
+}
+</pre>
+
+<h2>4. Variables in C</h2>
+<p>A <strong>variable</strong> is a storage location that holds a value which can be modified during the execution of the program.</p>
+
+<p><strong>Types of Variables:</strong></p>
+<ul>
+    <li><strong>Local Variables:</strong> Declared inside a function and accessible only within that function.</li>
+    <li><strong>Global Variables:</strong> Declared outside of all functions and accessible throughout the program.</li>
+</ul>
+
+<p><strong>Example: Variables in C</strong></p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int x = 5;        // integer variable
+    float y = 3.14;   // floating-point variable
+    char z = 'A';     // character variable
+
+    printf("Integer: %d, Float: %.2f, Character: %c\n", x, y, z);
+    return 0;
+}
+</pre>
+
+<h2>5. Data Types in C</h2>
+<p>Data types define the type of data a variable can store. Common data types include:</p>
+
+<p><strong>Common Data Types:</strong></p>
+<ul>
+    <li><strong>int:</strong> Integer data type for storing whole numbers.</li>
+    <li><strong>float:</strong> Floating-point data type for storing decimals.</li>
+    <li><strong>double:</strong> For storing large floating-point numbers.</li>
+    <li><strong>char:</strong> For storing single characters.</li>
+</ul>
+
+<p><strong>Example: Data Types in C</strong></p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int num = 10;
+    float pi = 3.14;
+    double largeNum = 123456.789;
+    char grade = 'A';
+
+    printf("Integer: %d\n", num);
+    printf("Float: %.2f\n", pi);
+    printf("Double: %.3f\n", largeNum);
+    printf("Character: %c\n", grade);
+
+    return 0;
+}
+</pre>
+
+<h2>6. Input and Output Operations</h2>
+<p>Standard Input and Output operations are handled using the functions:</p>
+<ul>
+    <li><strong>scanf():</strong> Used to read input from the user.</li>
+    <li><strong>printf():</strong> Used to display output to the console.</li>
+</ul>
+
+<p><strong>Example: Input and Output</strong></p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int age;
+    printf("Enter your age: ");
+    scanf("%d", &age);  // Reading integer input
+    printf("Your age is: %d\n", age);  // Printing the value
+    return 0;
+}
+</pre>
+
+<h2>7. Operators and Expressions</h2>
+<p>Operators are symbols that perform operations on variables and values.</p>
+
+<p><strong>Types of Operators:</strong></p>
+<ul>
+    <li><strong>Arithmetic Operators:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></li>
+    <li><strong>Relational Operators:</strong> <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></li>
+    <li><strong>Logical Operators:</strong> <code>&&&</code>, <code>||</code>, <code>!</code></li>
+    <li><strong>Assignment Operators:</strong> <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code></li>
+</ul>
+
+<p><strong>Example: Using Operators</strong></p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10, b = 5;
+    printf("a + b = %d\n", a + b);
+    printf("a - b = %d\n", a - b);
+    printf("a * b = %d\n", a * b);
+    printf("a / b = %d\n", a / b);
+    printf("a %% b = %d\n", a % b);  // Modulus operation
+    return 0;
+}
+</pre>
+
+<h2>8. Control Statements</h2>
+<p>Control statements are used to control the flow of execution in a program.</p>
+
+<p><strong>Types of Control Statements:</strong></p>
+<ul>
+    <li><strong>Conditional Statements:</strong> <code>if</code>, <code>if-else</code>, <code>switch</code></li>
+    <li><strong>Looping Statements:</strong> <code>for</code>, <code>while</code>, <code>do-while</code></li>
+    <li><strong>Jump Statements:</strong> <code>break</code>, <code>continue</code>,
+        
+<div>
+<h1>20 Important C Language Programs</h1>
+
+<h2>1. Hello World Program</h2>
+<p>This is a simple program to print "Hello, World!" to the screen.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+</pre>
+
+<h2>2. Program to Add Two Numbers</h2>
+<p>This program takes two numbers as input and prints their sum.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int num1, num2, sum;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+    sum = num1 + num2;
+    printf("Sum: %d\n", sum);
+    return 0;
+}
+</pre>
+
+<h2>3. Program to Check Even or Odd</h2>
+<p>This program checks if a given number is even or odd.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (num % 2 == 0) {
+        printf("%d is even\n", num);
+    } else {
+        printf("%d is odd\n", num);
+    }
+    return 0;
+}
+</pre>
+
+<h2>4. Program to Find Factorial of a Number</h2>
+<p>This program calculates the factorial of a number using a loop.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int num, i;
+    unsigned long long factorial = 1;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    for (i = 1; i <= num; ++i) {
+        factorial *= i;
+    }
+    printf("Factorial of %d is %llu\n", num, factorial);
+    return 0;
+}
+</pre>
+
+<h2>5. Program to Reverse a Number</h2>
+<p>This program reverses a given number.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int num, reversed = 0, remainder;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    while (num != 0) {
+        remainder = num % 10;
+        reversed = reversed * 10 + remainder;
+        num /= 10;
+    }
+    printf("Reversed number: %d\n", reversed);
+    return 0;
+}
+</pre>
+
+<h2>6. Program to Find Prime Number</h2>
+<p>This program checks if a given number is prime.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int num, i, flag = 0;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    for (i = 2; i <= num / 2; ++i) {
+        if (num % i == 0) {
+            flag = 1;
+            break;
+        }
+    }
+    if (num == 1) {
+        printf("1 is neither prime nor composite\n");
+    } else {
+        if (flag == 0)
+            printf("%d is a prime number\n", num);
+        else
+            printf("%d is not a prime number\n", num);
+    }
+    return 0;
+}
+</pre>
+
+<h2>7. Program to Generate Fibonacci Series</h2>
+<p>This program generates the Fibonacci series up to a given number.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, first = 0, second = 1, next;
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+    printf("Fibonacci Series: ");
+    for (int i = 1; i <= n; ++i) {
+        if (i == 1) {
+            printf("%d, ", first);
+            continue;
+        }
+        if (i == 2) {
+            printf("%d, ", second);
+            continue;
+        }
+        next = first + second;
+        first = second;
+        second = next;
+        printf("%d, ", next);
+    }
+    printf("\n");
+    return 0;
+}
+</pre>
+
+<h2>8. Program to Calculate Sum of Natural Numbers</h2>
+<p>This program calculates the sum of natural numbers up to a given number.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, sum = 0;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    for (int i = 1; i <= n; ++i) {
+        sum += i;
+    }
+    printf("Sum of natural numbers up to %d is %d\n", n, sum);
+    return 0;
+}
+</pre>
+
+<h2>9. Program to Find Largest Among Three Numbers</h2>
+<p>This program compares three numbers and finds the largest.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, c;
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+    if (a >= b && a >= c) {
+        printf("%d is the largest number\n", a);
+    } else if (b >= a && b >= c) {
+        printf("%d is the largest number\n", b);
+    } else {
+        printf("%d is the largest number\n", c);
+    }
+    return 0;
+}
+</pre>
+
+<h2>10. Program to Sort an Array</h2>
+<p>This program sorts an array of integers in ascending order.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, i, j, temp;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter the elements: ");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    for (i = 0; i < n - 1; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (arr[i] > arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    printf("Sorted Array: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+</pre>
+
+<h2>111. Program to Swap Two Numbers Using Temporary Variable</h2>
+<p>This program swaps the values of two numbers using a temporary variable.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, temp;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    temp = a;
+    a = b;
+    b = temp;
+    printf("After swapping: a = %d, b = %d\n", a, b);
+    return 0;
+}
+</pre>
+
+<h2>12. Program to Swap Two Numbers Without Using Temporary Variable</h2>
+<p>This program swaps two numbers without using a temporary variable.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    a = a + b;
+    b = a - b;
+    a = a - b;
+    printf("After swapping: a = %d, b = %d\n", a, b);
+    return 0;
+}
+</pre>
+
+<h2>13. Program to Check Leap Year</h2>
+<p>This program checks if a given year is a leap year or not.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int year;
+    printf("Enter a year: ");
+    scanf("%d", &year);
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        printf("%d is a leap year\n", year);
+    } else {
+        printf("%d is not a leap year\n", year);
+    }
+    return 0;
+}
+</pre>
+
+<h2>14. Program to Find the Length of a String</h2>
+<p>This program finds the length of a given string without using the built-in <code>strlen()</code> function.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char str[100];
+    int length = 0;
+    printf("Enter a string: ");
+    gets(str);
+    while (str[length] != '\0') {
+        length++;
+    }
+    printf("Length of the string is: %d\n", length);
+    return 0;
+}
+</pre>
+
+<h2>15. Program to Count the Number of Vowels in a String</h2>
+<p>This program counts the number of vowels (a, e, i, o, u) in a string.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char str[100];
+    int count = 0;
+    printf("Enter a string: ");
+    gets(str);
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u' || 
+            str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U') {
+            count++;
+        }
+    }
+    printf("Number of vowels: %d\n", count);
+    return 0;
+}
+</pre>
+
+<h2>16. Program to Reverse a String</h2>
+<p>This program reverses a given string without using any built-in function.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char str[100], temp;
+    int i, j;
+    printf("Enter a string: ");
+    gets(str);
+    for (i = 0, j = strlen(str) - 1; i < j; i++, j--) {
+        temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+    }
+    printf("Reversed string: %s\n", str);
+    return 0;
+}
+</pre>
+
+<h2>17. Program to Check Armstrong Number</h2>
+<p>An Armstrong number is a number that is equal to the sum of its own digits raised to the power of the number of digits.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    int num, sum = 0, temp, remainder, n = 0;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    temp = num;
+    while (temp != 0) {
+        temp /= 10;
+        ++n;
+    }
+    temp = num;
+    while (temp != 0) {
+        remainder = temp % 10;
+        sum += pow(remainder, n);
+        temp /= 10;
+    }
+    if (sum == num) {
+        printf("%d is an Armstrong number\n", num);
+    } else {
+        printf("%d is not an Armstrong number\n", num);
+    }
+    return 0;
+}
+</pre>
+
+<h2>18. Program to Calculate Power of a Number</h2>
+<p>This program calculates the power of a number using a loop.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int base, exponent, result = 1;
+    printf("Enter base and exponent: ");
+    scanf("%d %d", &base, &exponent);
+    for (int i = 1; i <= exponent; ++i) {
+        result *= base;
+    }
+    printf("%d raised to the power of %d is %d\n", base, exponent, result);
+    return 0;
+}
+</pre>
+
+<h2>19. Program to Merge Two Arrays</h2>
+<p>This program merges two arrays into a third array.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n1, n2;
+    printf("Enter number of elements in first array: ");
+    scanf("%d", &n1);
+    int arr1[n1];
+    printf("Enter elements of first array: ");
+    for (int i = 0; i < n1; i++) {
+        scanf("%d", &arr1[i]);
+    }
+
+    printf("Enter number of elements in second array: ");
+    scanf("%d", &n2);
+    int arr2[n2];
+    printf("Enter elements of second array: ");
+    for (int i = 0; i < n2; i++) {
+        scanf("%d", &arr2[i]);
+    }
+
+    int merged[n1 + n2];
+    for (int i = 0; i < n1; i++) {
+        merged[i] = arr1[i];
+    }
+    for (int i = 0; i < n2; i++) {
+        merged[n1 + i] = arr2[i];
+    }
+
+    printf("Merged Array: ");
+    for (int i = 0; i < n1 + n2; i++) {
+        printf("%d ", merged[i]);
+    }
+    printf("\n");
+    return 0;
+}
+</pre>
+
+<h2>20. Program to Sort an Array Using Bubble Sort</h2>
+<p>This program sorts an array using the Bubble Sort algorithm.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int n, temp;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter the elements: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("Sorted Array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+</pre>
+
+
+
+
+</div>

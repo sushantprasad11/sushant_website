@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1{
+            background-color:#d6a20e ;
+            color:#176dd8 ;
+            text-align: center;
+            text-decoration: underline;
+        }
+         h2 {
+            color: #333;
+            text-align: center;
+            text-decoration: underline;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        code {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Python Programming Notes</h1>
+
+<h2>1. Introduction to Python</h2>
+<p>Python is an interpreted, high-level programming language known for its simplicity and readability. It was created by Guido van Rossum and released in 1991. Python's syntax allows developers to write clear, logical code for small and large-scale projects.</p>
+
+<h2>2. Python Basics</h2>
+<p>Python uses dynamic typing, meaning you don’t need to declare variable types. Python is also known for its rich standard library that supports many functionalities like file I/O, system calls, and internet protocols.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Python program to print a message
+print("Hello, World!")
+</pre>
+
+<h2>3. Variables and Data Types</h2>
+<p>In Python, variables are dynamically typed, meaning you don’t need to declare their type. Python has several built-in data types, such as integers, floats, strings, lists, tuples, and dictionaries.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Defining variables of different types
+a = 10           # integer
+b = 3.14         # float
+c = "Python"     # string
+d = [1, 2, 3]    # list
+
+# Printing variable types
+print(type(a))
+print(type(b))
+print(type(c))
+print(type(d))
+</pre>
+
+<h2>4. Input and Output</h2>
+<p>Python's <code>input()</code> function allows user input, and the <code>print()</code> function is used to output data to the console.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Input and Output Example
+name = input("Enter your name: ")
+print("Hello, " + name)
+</pre>
+
+<h2>5. Operators in Python</h2>
+<p>Python supports several operators such as arithmetic operators (+, -, *, /), comparison operators (==, !=, >, <), logical operators (and, or, not), and others.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Arithmetic operators
+x = 5
+y = 3
+sum = x + y
+product = x * y
+
+# Comparison operators
+result = (x > y)
+
+print("Sum: ", sum)
+print("Product: ", product)
+print("Is x greater than y? ", result)
+</pre>
+
+<h2>6. Conditional Statements</h2>
+<p>Python supports <code>if</code>, <code>else</code>, and <code>elif</code> to make decisions based on conditions.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Conditional statement example
+num = int(input("Enter a number: "))
+if num > 0:
+    print("Positive number")
+elif num < 0:
+    print("Negative number")
+else:
+    print("Zero")
+</pre>
+
+<h2>7. Loops in Python</h2>
+<p>Python supports two primary types of loops: <code>for</code> and <code>while</code>.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# For loop example
+for i in range(5):
+    print(i)
+
+# While loop example
+n = 5
+while n > 0:
+    print(n)
+    n -= 1
+</pre>
+
+<h2>8. Functions in Python</h2>
+<p>Functions in Python are defined using the <code>def</code> keyword. Functions can return values or perform actions.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Function to add two numbers
+def add_numbers(a, b):
+    return a + b
+
+result = add_numbers(5, 3)
+print("Sum:", result)
+</pre>
+
+<h2>9. Lists in Python</h2>
+<p>Lists in Python are mutable, ordered collections of elements. They can contain elements of different types and are defined using square brackets <code>[]</code>.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Creating and manipulating lists
+my_list = [1, 2, 3, 4]
+my_list.append(5)
+my_list.remove(2)
+print("Updated List:", my_list)
+</pre>
+
+<h2>10. Dictionaries in Python</h2>
+<p>Dictionaries are unordered collections of key-value pairs. They are defined using curly braces <code>{}</code>.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Creating and accessing a dictionary
+my_dict = {"name": "John", "age": 25, "city": "New York"}
+print("Name:", my_dict["name"])
+print("Age:", my_dict["age"])
+</pre>
+
+<h2>11. Tuples in Python</h2>
+<p>Tuples are immutable sequences in Python. Once defined, their elements cannot be changed. Tuples are defined using parentheses <code>()</code>.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Creating and accessing a tuple
+my_tuple = (1, 2, 3)
+print("First Element:", my_tuple[0])
+</pre>
+
+<h2>12. Sets in Python</h2>
+<p>Sets are unordered collections of unique elements. They are defined using curly braces <code>{}</code>.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Creating and manipulating a set
+my_set = {1, 2, 3, 4}
+my_set.add(5)
+my_set.remove(2)
+print("Updated Set:", my_set)
+</pre>
+
+<h2>13. File Handling in Python</h2>
+<p>Python provides functions for file handling, such as opening, reading, writing, and closing files.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# File handling example
+file = open("sample.txt", "w")
+file.write("Hello, Python!")
+file.close()
+
+file = open("sample.txt", "r")
+print(file.read())
+file.close()
+</pre>
+
+<h2>14. Exception Handling in Python</h2>
+<p>Python provides <code>try</code>, <code>except</code>, and <code>finally</code> blocks to handle exceptions and errors.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Exception handling example
+try:
+    num = int(input("Enter a number: "))
+    print("You entered:", num)
+except ValueError:
+    print("Invalid input! Please enter an integer.")
+finally:
+    print("Execution completed.")
+</pre>
+
+<h2>15. Classes and Objects in Python</h2>
+<p>Python supports Object-Oriented Programming (OOP) features like classes, objects, inheritance, etc. Classes are defined using the <code>class</code> keyword.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Class and Object example
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        print("Hello, my name is", self.name)
+
+person1 = Person("Alice", 30)
+person1.greet()
+</pre>
+
+<h2>16. Modules and Packages in Python</h2>
+<p>Modules allow you to logically organize your Python code, and packages help organize multiple modules into directories.</p>
+
+<h3>Example Code:</h3>
+<pre>
+# Importing the math module
+import math
+
+result = math.sqrt(16)
+print("Square root of 16 is:", result)
+</pre>
+
+<h2>Conclusion</h2>
+<p>Python is a powerful, versatile language that is easy to learn and widely used in many fields such as web development, data science, and automation. This brief guide covers the basics, but Python has many advanced features and libraries that make it an excellent choice for developers.</p>
+<div>
+    <h1>25 Important Python Codes</h1>
+    <div class="code-block">
+        <h2>1. Hello World</h2>
+        <pre><code>print("Hello, World!")</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>2. Variables and Data Types</h2>
+        <pre><code>x = 5
+y = "Hello"
+print(x)
+print(y)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>3. If-Else Statement</h2>
+        <pre><code>x = 10
+if x > 5:
+    print("x is greater than 5")
+else:
+    print("x is less than or equal to 5")</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>4. For Loop</h2>
+        <pre><code>for i in range(5):
+    print(i)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>5. While Loop</h2>
+        <pre><code>i = 0
+while i < 5:
+    print(i)
+    i += 1</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>6. Functions</h2>
+        <pre><code>def greet(name):
+    return "Hello, " + name
+
+print(greet("Alice"))</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>7. List</h2>
+        <pre><code>my_list = [1, 2, 3, 4]
+print(my_list)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>8. Dictionary</h2>
+        <pre><code>my_dict = {"name": "Alice", "age": 25}
+print(my_dict)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>9. Tuples</h2>
+        <pre><code>my_tuple = (1, 2, 3)
+print(my_tuple)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>10. Set</h2>
+        <pre><code>my_set = {1, 2, 3}
+print(my_set)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>11. List Comprehension</h2>
+        <pre><code>squares = [x**2 for x in range(5)]
+print(squares)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>12. Try-Except for Error Handling</h2>
+        <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>13. Lambda Function</h2>
+        <pre><code>multiply = lambda x, y: x * y
+print(multiply(3, 4))</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>14. Map Function</h2>
+        <pre><code>nums = [1, 2, 3, 4]
+squared = list(map(lambda x: x**2, nums))
+print(squared)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>15. Filter Function</h2>
+        <pre><code>nums = [1, 2, 3, 4, 5]
+even_nums = list(filter(lambda x: x % 2 == 0, nums))
+print(even_nums)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>16. Reduce Function</h2>
+        <pre><code>from functools import reduce
+nums = [1, 2, 3, 4]
+product = reduce(lambda x, y: x * y, nums)
+print(product)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>17. Class and Objects</h2>
+        <pre><code>class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+person1 = Person("Alice", 30)
+print(person1.name, person1.age)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>18. File Reading</h2>
+        <pre><code>with open("file.txt", "r") as file:
+    content = file.read()
+    print(content)</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>19. File Writing</h2>
+        <pre><code>with open("file.txt", "w") as file:
+    file.write("Hello, File!")</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>20. Importing Libraries</h2>
+        <pre><code>import math
+print(math.sqrt(16))</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>21. Regular Expressions</h2>
+        <pre><code>import re
+pattern = r"\d+"
+match = re.search(pattern, "My number is 123")
+print(match.group())</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>22. Exception Handling with Else</h2>
+        <pre><code>try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+else:
+    print("Division successful")</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>23. Assertions</h2>
+        <pre><code>assert 5 > 3, "Assertion failed"
+print("Assertion passed")</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>24. Generators</h2>
+        <pre><code>def my_generator():
+    for i in range(5):
+        yield i
+
+gen = my_generator()
+print(next(gen))
+print(next(gen))</code></pre>
+    </div>
+
+    <div class="code-block">
+        <h2>25. Decorators</h2>
+        <pre><code>def decorator(func):
+    def wrapper():
+        print("Before function")
+        func()
+        print("After function")
+    return wrapper
+
+@decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()</code></pre>
+    </div>
+
+
+</div>
+
+</body>
+</html>
